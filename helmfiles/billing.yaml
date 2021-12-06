@@ -1,0 +1,8 @@
+bases:
+- ../templates/common.yaml
+
+helmfiles:
+- path: all.yaml
+  selectors:
+  - name=foo1
+  - name=foo4

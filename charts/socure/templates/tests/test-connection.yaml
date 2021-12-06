@@ -1,0 +1,17 @@
+{{- if .Values.tests.enabled }}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "socure.fullname" . }}-test-connection"
+  labels:
+    {{- include "socure.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "socure.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
+{{- end }}

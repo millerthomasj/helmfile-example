@@ -1,0 +1,5 @@
+bases:
+- templates/common.yaml
+
+helmfiles:
+- path: helmfiles/all.yaml

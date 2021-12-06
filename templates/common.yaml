@@ -1,0 +1,16 @@
+environments:
+  staging: &defaultEnv
+    missingFileHandler: Info
+    values:
+    - values/common.yaml.gotmpl
+    - values/{{ .Environment.Name }}/{{ .Environment.Name }}.yaml
+    - values/{{ .Environment.Name }}/{{ .Namespace }}/{{ .Environment.Name }}.yaml
+  dev:
+    <<: *defaultEnv
+  qa:
+    <<: *defaultEnv
+  production:
+    <<: *defaultEnv
+
+helmDefaults:
+  timeout: 1800

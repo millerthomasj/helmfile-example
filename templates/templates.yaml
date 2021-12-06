@@ -1,0 +1,11 @@
+templates:
+  default: &defaults
+    missingFileHandler: Warn
+    chart: ../charts/socure
+    values:
+      - ../values/base.yaml.gotmpl
+      - ../values/{{ .Release.Name }}.yaml.gotmpl
+      - ../values/{{ .Environment.Name }}/base.yaml.gotmpl
+      - ../values/{{ .Environment.Name }}/{{ .Release.Name }}.yaml.gotmpl
+      - ../values/{{ .Environment.Name }}/{{ .Namespace }}/base.yaml.gotmpl
+      - ../values/{{ .Environment.Name }}/{{ .Namespace }}/{{ .Release.Name }}.yaml.gotmpl

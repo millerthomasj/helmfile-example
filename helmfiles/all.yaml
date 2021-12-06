@@ -1,0 +1,24 @@
+bases:
+- ../templates/common.yaml
+
+{{ readFile "../templates/templates.yaml" }}
+
+releases:
+- name: foo0
+  <<: *defaults
+
+- name: foo1
+  <<: *defaults
+
+- name: foo2
+  <<: *defaults
+
+- name: foo3
+  <<: *defaults
+
+- name: foo4
+  <<: *defaults
+
+- name: foo5
+  <<: *defaults
+
